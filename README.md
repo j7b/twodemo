@@ -1,4 +1,12 @@
 # twodemo
 Demos of two
 
-[./orbit]
+[flipbook](./flipbook)
+
+[orbit](./orbit)
+
+[plink](./plink)
+
+[rotate](./rotate)
+
+[wrapping](./wrapping)
