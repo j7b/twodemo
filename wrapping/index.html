@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="../wasm_exec.js"></script>
+  <script>
+    const go = new Go();
+    const load = async (resp, importObject) => {
+      const source = await (await resp).arrayBuffer();
+      return await WebAssembly.instantiate(source, importObject);
+    };
+  </script>
+</head>
+<body>
+<h1 id="loading">Loading...</h1>
+<canvas id="_two_canvas" style="margin:auto;display:block"></canvas>
+<script>
+    load(fetch("main.wasm"), go.importObject).then(result => {
+      go.run(result.instance);
+      var e = document.getElementById("loading");
+      e.parentNode.removeChild(e);
+    });
+</script>
+</body>
+</html>
